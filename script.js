@@ -2,7 +2,7 @@
 //function what creates the grid
 function createGrid(size) {
     const mainDiv = document.querySelector('.grid');
-    let cellSize = 500/size;
+    let cellSize = 940/size;
     let rowSize = size*cellSize;
     
     for (let i=0; i<size; i++){
@@ -14,19 +14,16 @@ function createGrid(size) {
 
     };
 };
+let gridSize = 32;
+createGrid(gridSize);
 
-createGrid(9);
 
 
 // function responsible for coloring the currently active div
 function colorDiv(event){
-    event.target.classList.add('colored');
+    if(event.which == 1)
+        event.target.classList.add('colored');
 };
 
-let div = document.querySelector('.grid');
-
-//this should be multiple event listener, but it seems to be rather MOUSEDOWN || MOUSEOVER 
-// not MOUSEDOWN && MOUSEOVER
-['mousedown', 'mouseover'].forEach(function(e){
-    div.addEventListener(e, colorDiv, false)
-});
+const div = document.querySelector('.grid');
+div.addEventListener('mouseover', colorDiv, false)
