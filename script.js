@@ -21,9 +21,11 @@ createGrid(gridSize);
 
 // function responsible for coloring the currently active div
 function colorDiv(event){
-    if(event.which == 1)
+    if(event.which == 1){
+        event.preventDefault()
         event.target.classList.add('colored');
+    };
 };
 
 const div = document.querySelector('.grid');
-div.addEventListener('mouseover', colorDiv, false)
+div.addEventListener('mouseover', colorDiv, true)
