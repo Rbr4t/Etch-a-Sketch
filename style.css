@@ -3,12 +3,13 @@
     width: 500px;
     height: 500px;
     border: 5px solid red;
-    
-
 }
 
 .grid div {
-    
     outline: 1px solid;
     float: left;
+}
+
+.colored {
+    background-color: blueviolet;
 }
