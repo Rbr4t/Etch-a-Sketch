@@ -1,7 +1,7 @@
 //global variables
 const mainDiv = document.querySelector('.grid');
 let currentColor = 'black';
-
+let gridSize = 16;
 
 
 //function what creates the grid
@@ -19,7 +19,6 @@ function createGrid(size) {
 
     };
 };
-let gridSize = 16;
 createGrid(gridSize);
 
 
@@ -60,12 +59,29 @@ newGrid.addEventListener('click', drawNewGrid)
 
 
 
+// Remove all borders from the color palette
+function removeBorder() {
+    
+    const children = colorSelector.childNodes;
+    children.forEach(element=>{
+        element.classList = 'color';
+    })
+
+};
+
+
+
 //Choose color
 const colorSelector = document.querySelector('.colors');
 colorSelector.addEventListener('click', function(e){
     currentColor = e.target.id;
-   
+    //we remove border from all of the divs
+    removeBorder()
+    //we add selected class to the selected div 
+    e.target.classList.add('selected');
+
 });
 
 
-// Add border to the last clicked button
+
+

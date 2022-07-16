@@ -18,12 +18,17 @@
     height: 50px;
     border: 1px solid #ccccc8;
     border-radius: 10px;
+    transition: all 0.07s;
 }
 .color:hover {
     border: 5px solid #ff5900;
 }
+.selected {
+    border: 5px solid #ff5900; 
+}
 #red {
     background-color: red;
+    
 }
 #blue {
     background-color: blue;
