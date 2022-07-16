@@ -53,7 +53,6 @@ function drawNewGrid() {
     let newSize = parseInt(prompt("Enter new size: "), 10);
     while (isNaN(newSize) || newSize<0 || newSize>100||newSize==null||newSize==="") {
         newSize = prompt("Enter new size: "); 
-        console.log(newSize)
     };
 
     let first = mainDiv.firstElementChild;
