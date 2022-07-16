@@ -22,12 +22,20 @@ function createGrid(size) {
 createGrid(gridSize);
 
 
-
+//random color function
+function randomColor(){
+    return [Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)];
+}
 // function responsible for coloring the currently active div
 function colorDiv(event){
     if(event.which == 1){
-        event.preventDefault()
-        event.target.style.backgroundColor = currentColor;
+        event.preventDefault();
+        if (currentColor !== 'random') {
+            event.target.style.backgroundColor = currentColor;
+        } else {
+            currentColorRan = randomColor();
+            event.target.style.backgroundColor = `rgb(${currentColorRan.join(", ")})`;
+        }
     };
 };
 
@@ -69,16 +77,31 @@ function removeBorder() {
 
 };
 
+// Reset the current grid
+function resetGrid(){
+    const children = mainDiv.childNodes;
+    children.forEach(element=>{
+        element.style.backgroundColor = "white";
+        
+    });
+};
+const reset = document.querySelector('.resetgrid');
+reset.addEventListener('click', resetGrid);
 
 
 //Choose color
 const colorSelector = document.querySelector('.colors');
 colorSelector.addEventListener('click', function(e){
     currentColor = e.target.id;
-    //we remove border from all of the divs
-    removeBorder()
-    //we add selected class to the selected div 
-    e.target.classList.add('selected');
+
+    if (e.target.classList.value !=='colors'){
+        //we remove border from all of the divs
+        removeBorder()
+        
+        //we add selected class to the selected div 
+        e.target.classList.add('selected');
+    }
+    
 
 });
 

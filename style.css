@@ -21,9 +21,12 @@
     transition: all 0.07s;
 }
 .color:hover {
+    
     border: 5px solid #ff5900;
 }
 .selected {
+    width: 55px;
+    height: 55px;
     border: 5px solid #ff5900; 
 }
 #red {
@@ -56,4 +59,12 @@
 }
 #white {
     background-color: white;
+}
+#random {
+    background: url(icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#random:hover{
+    background-size: 45px;
 }
