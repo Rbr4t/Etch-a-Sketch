@@ -1,4 +1,9 @@
+//global variables
 const mainDiv = document.querySelector('.grid');
+let currentColor = 'black';
+
+
+
 //function what creates the grid
 function createGrid(size) {
     
@@ -24,12 +29,12 @@ function colorDiv(event){
     //console.log(event.which)
     if(event.which == 1){
         event.preventDefault()
-        event.target.classList.add('colored');
+        event.target.style.backgroundColor = currentColor;
     };
 };
 
 const div = document.querySelector('.grid');
-div.addEventListener('mouseover', colorDiv, true)
+div.addEventListener('mouseover', colorDiv);
 
 
 
@@ -53,3 +58,13 @@ function drawNewGrid() {
 //New grid
 const newGrid = document.querySelector('.change-grid');
 newGrid.addEventListener('click', drawNewGrid)
+
+
+
+//Choose color
+const colorSelector = document.querySelector('.colors');
+colorSelector.addEventListener('click', function(e){
+    console.log(e);
+    currentColor = e.target.innerText.toLowerCase();
+    console.log(currentColor);
+});
