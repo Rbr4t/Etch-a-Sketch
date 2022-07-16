@@ -13,7 +13,7 @@ function createGrid(size) {
     for (let i=0; i<size; i++){
         for (let j= 0;j<size; j++){
             let newDiv = document.createElement('div');
-            newDiv.style.cssText = `height: ${cellSize}px; width: ${cellSize}px;`;
+            newDiv.style.cssText = `height: ${cellSize}px; width: ${cellSize}px; background-color: white;`;
             mainDiv.appendChild(newDiv);
         };
 
@@ -26,7 +26,6 @@ createGrid(gridSize);
 
 // function responsible for coloring the currently active div
 function colorDiv(event){
-    //console.log(event.which)
     if(event.which == 1){
         event.preventDefault()
         event.target.style.backgroundColor = currentColor;
@@ -64,7 +63,5 @@ newGrid.addEventListener('click', drawNewGrid)
 //Choose color
 const colorSelector = document.querySelector('.colors');
 colorSelector.addEventListener('click', function(e){
-    console.log(e);
-    currentColor = e.target.innerText.toLowerCase();
-    console.log(currentColor);
+    currentColor = e.target.id;
 });
