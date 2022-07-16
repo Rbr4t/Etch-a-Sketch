@@ -64,4 +64,8 @@ newGrid.addEventListener('click', drawNewGrid)
 const colorSelector = document.querySelector('.colors');
 colorSelector.addEventListener('click', function(e){
     currentColor = e.target.id;
+   
 });
+
+
+// Add border to the last clicked button
